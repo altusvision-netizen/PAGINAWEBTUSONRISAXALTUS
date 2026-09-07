@@ -1,0 +1,21 @@
+# sistema / herramientas
+.DS_Store
+.vercel
+node_modules/
+npm-cache/
+.claude/
+
+# intermedios de producción del film (regenerables con los scripts de film/)
+film/node_modules/
+film/npm-cache/
+film/clips/
+film/clips_v3/
+film/jobs/
+film/jobs_v3/
+film/steps/
+film/*.mp4
+film/*.png
+film/*.jpg
+film/*.txt
+film/recorrido_v3_pendiente.html
+film/opt/

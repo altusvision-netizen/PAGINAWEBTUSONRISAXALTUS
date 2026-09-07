@@ -1,0 +1,5 @@
+film/
+anchors/
+npm-cache/
+.git/
+.DS_Store

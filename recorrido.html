@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="es-SV">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B222E">
+<title>Recorrido virtual — Clínica Dental Tu Sonrisa · San Salvador</title>
+<meta name="description" content="Caminá la Clínica Dental Tu Sonrisa completa sin salir de casa: un viaje cinematográfico continuo en 3 capítulos, controlado por tu scroll.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 6C20 6 12 14 12 25c0 8 3 12 5 19s3 14 7 14 4-8 8-8 4 8 8 8 5-7 7-14 5-11 5-19C52 14 44 6 32 6z' fill='%230E5A68'/%3E%3Cpath d='M24 22c2-3 6-4 8-1 2-3 6-2 8 1 2 4-2 8-8 12-6-4-10-8-8-12z' fill='%23F6F4EF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TU SONRISA · RECORRIDO VIRTUAL COMPLETO — 3 CAPÍTULOS
+   50 anclas reales · el scroll mueve el mundo, nunca se congela.
+   ============================================================ */
+:root{
+  --bg:#0B222E;
+  --glass-border:rgba(246,244,239,.16);
+  --accent:#C2A05F;
+  --aqua:#6FC7D1;
+  --rosa:#F2679E;
+  --text:#F2EFE8;
+  --text-dim:rgba(242,239,232,.72);
+  --label:rgba(242,239,232,.45);
+  --serif:'Domine',Georgia,serif;
+  --sans:'Montserrat',system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.18;text-wrap:balance;margin:0}
+p{margin:0}
+.label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--label)}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- loader ---------- */
+#loader{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;transition:opacity .9s ease}
+#loader.done{opacity:0;pointer-events:none}
+#loader .mark{font-family:var(--serif);font-weight:500;font-size:clamp(1.4rem,3.6vw,2.1rem);letter-spacing:.3em;text-transform:uppercase}
+#loader .mark b{color:var(--aqua);font-weight:500}
+#loader .bar{width:min(220px,50vw);height:1px;background:rgba(242,239,232,.2);overflow:hidden}
+#loader .bar i{display:block;height:100%;width:0%;background:var(--accent);transition:width .3s ease}
+#loader small{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--label)}
+#enter{display:none;margin-top:.6rem;padding:14px 36px;border-radius:999px;border:1px solid rgba(194,160,95,.6);background:rgba(194,160,95,.12);color:#C2A05F;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:background .3s}
+#enter:hover{background:rgba(194,160,95,.25)}
+
+/* ---------- header + marquee ---------- */
+header.site{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:calc(1.1rem + env(safe-area-inset-top)) 1.8rem 1.1rem;background:linear-gradient(to bottom,rgba(11,34,46,.55),transparent)}
+header.site .brand{font-family:var(--serif);font-size:1rem;letter-spacing:.32em;text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:.8rem}
+header.site .brand svg{width:26px;height:26px}
+header.site .cta{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:#0B222E;background:var(--text);padding:.7em 1.6em;border-radius:2em;text-decoration:none;transition:background .3s}
+header.site .cta:hover{background:var(--accent)}
+header.site .back{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;margin-right:1.2rem}
+header.site .back:hover{color:var(--aqua)}
+#cap{position:fixed;top:calc(4.6rem + env(safe-area-inset-top));left:1.8rem;z-index:50;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--label);display:flex;align-items:center;gap:10px;opacity:0;transition:opacity .6s}
+#cap.on{opacity:1}
+#cap b{color:var(--accent);font-family:var(--serif);font-size:.85rem;letter-spacing:.1em}
+
+#estado{position:fixed;bottom:0;left:0;right:0;z-index:50;background:rgba(11,34,46,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid rgba(111,199,209,.35);overflow:hidden;height:2.1rem;display:flex;align-items:center;padding-bottom:env(safe-area-inset-bottom)}
+#estado .track{display:flex;gap:3.5rem;white-space:nowrap;animation:marquee 32s linear infinite;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(242,239,232,.85)}
+#estado .track b{color:var(--aqua);font-weight:500}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){#estado .track{animation:none}}
+
+/* ---------- tracks ---------- */
+.trk{position:relative}
+.trk .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.trk video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.trk .stage::after{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 52%,rgba(11,34,46,.42) 100%)}
+
+/* ---------- capítulos flotantes ---------- */
+.chapter{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;pointer-events:none;opacity:0;transform:translateY(18px);will-change:opacity,transform;padding:0 1.5rem;visibility:hidden}
+.chapter .kicker{font-size:.6rem;letter-spacing:.45em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.chapter h2{font-size:clamp(1.7rem,4.6vw,3.1rem);text-shadow:0 2px 30px rgba(11,34,46,.55)}
+.chapter h2 em{font-style:italic;color:var(--aqua)}
+.chapter p{margin-top:.9rem;font-size:.9rem;color:var(--text-dim);max-width:44ch;text-shadow:0 1px 14px rgba(11,34,46,.6)}
+.hero-film h1{font-size:clamp(2.1rem,7vw,3.9rem);letter-spacing:.02em;text-shadow:0 2px 40px rgba(11,34,46,.6)}
+.hero-film h1 em{font-style:italic;color:var(--aqua)}
+.hero-film .eyebrow{font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--accent);margin-bottom:1.3rem}
+.hero-film .lede{margin-top:1.3rem;max-width:44ch;font-size:clamp(.9rem,2vw,1.1rem);font-weight:300;text-shadow:0 1px 18px rgba(11,34,46,.6)}
+.hero-film .hint{position:absolute;bottom:4rem;left:50%;transform:translateX(-50%);font-size:.58rem;letter-spacing:.35em;text-transform:uppercase;color:rgba(242,239,232,.7);display:flex;flex-direction:column;align-items:center;gap:.7rem}
+.hero-film .hint::after{content:'';width:1px;height:38px;background:linear-gradient(to bottom,var(--text),transparent);animation:drip 2.2s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(.2);transform-origin:top}55%{transform:scaleY(1)}100%{opacity:0;transform:scaleY(1)}}
+
+/* ---------- paneles ---------- */
+.panel{position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:calc(4.2rem + env(safe-area-inset-top)) 1.2rem 3.6rem;opacity:0;visibility:hidden;pointer-events:none;will-change:opacity;contain:layout style}
+.panel.on{pointer-events:auto}
+.panel-inner{position:relative;width:min(100%,980px);transform-origin:center center;will-change:transform}
+.glass{background:linear-gradient(160deg,rgba(10,32,44,.9),rgba(7,22,31,.82));border:1px solid var(--glass-border);border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.45), inset 0 1px 0 rgba(242,239,232,.07);padding:26px 26px}
+.glass .label{display:block;margin-bottom:12px;color:var(--accent)}
+.glass h2{font-size:clamp(1.35rem,3.6vw,2rem);margin-bottom:10px}
+.glass h2 em{font-style:italic;color:var(--aqua)}
+.glass p{color:var(--text-dim);font-size:.92rem}
+.panel .stack{display:grid;gap:12px}
+@media(min-width:820px){.panel .cols-3{grid-template-columns:repeat(3,1fr)}.panel .cols-2{grid-template-columns:1fr 1fr}}
+.mini{padding:18px 20px}
+.mini h3{font-family:var(--sans);font-weight:600;font-size:.98rem;margin-bottom:6px}
+.mini p{font-size:.85rem}
+.mini .idx{display:block;font-family:var(--serif);color:var(--accent);font-size:.9rem;margin-bottom:10px}
+.badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:5px 12px;border-radius:999px;border:1px solid var(--glass-border);color:var(--text-dim);margin-bottom:12px}
+.badge.gold{border-color:var(--accent);color:var(--accent);background:rgba(194,160,95,.08)}
+.badge.rosa{border-color:var(--rosa);color:var(--rosa);background:rgba(242,103,158,.08)}
+.route-mini{list-style:none;margin:0;padding:0;display:grid;gap:8px;counter-reset:r}
+@media(min-width:720px){.route-mini{grid-template-columns:1fr 1fr}}
+.route-mini li{counter-increment:r;display:flex;gap:12px;align-items:baseline;background:rgba(242,239,232,.05);border:1px solid rgba(242,239,232,.09);border-radius:10px;padding:11px 14px;font-size:.85rem}
+.route-mini li::before{content:counter(r,decimal-leading-zero);font-family:var(--serif);color:var(--accent);font-size:.9rem}
+.route-mini b{font-weight:600;color:var(--text)}
+.route-mini span{color:var(--text-dim)}
+.route-mini .v{margin-left:auto;color:var(--aqua);font-weight:600;white-space:nowrap}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{border:1px solid rgba(242,239,232,.14);background:rgba(242,239,232,.05);border-radius:999px;padding:7px 14px;font-size:.78rem;color:var(--text-dim)}
+.chip b{color:var(--accent);font-family:var(--serif);margin-right:6px}
+.chip.key{border-color:var(--aqua);color:var(--text)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 24px;border-radius:999px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:.04em;transition:background .25s;border:1px solid transparent;cursor:pointer}
+.btn-solid{background:var(--accent);color:#0B222E}
+.btn-solid:hover{background:#d4b478}
+.btn-ghost{border-color:rgba(242,239,232,.3);color:var(--text)}
+.btn-ghost:hover{border-color:var(--accent)}
+@keyframes lev{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.lev{animation:lev 5.5s ease-in-out infinite;display:inline-block}
+@media(prefers-reduced-motion:reduce){.lev{animation:none}}
+
+/* ---------- interludios entre capítulos ---------- */
+.inter{display:none;position:relative;min-height:120vh;align-items:center;justify-content:center;text-align:center;background:
+  radial-gradient(ellipse at 50% 0%,rgba(111,199,209,.08),transparent 55%),
+  radial-gradient(ellipse at 50% 100%,rgba(194,160,95,.07),transparent 55%),var(--bg);padding:20vh 1.5rem}
+.inter .in{max-width:700px;opacity:0;transform:translateY(30px);transition:opacity 1s ease,transform 1s ease}
+.inter.vis .in{opacity:1;transform:none}
+.inter .cnum{font-family:var(--serif);font-size:clamp(3rem,10vw,5.5rem);color:rgba(242,239,232,.08);line-height:1}
+.inter .label{color:var(--accent);margin:10px 0 14px;display:block}
+.inter h2{font-size:clamp(1.8rem,5vw,3rem)}
+.inter h2 em{font-style:italic;color:var(--aqua)}
+.inter p{margin-top:14px;color:var(--text-dim);font-size:.95rem;max-width:46ch;margin-left:auto;margin-right:auto}
+.inter .flecha{margin:34px auto 0;width:1px;height:56px;background:linear-gradient(to bottom,var(--accent),transparent)}
+
+/* ---------- móvil: puerta ---------- */
+#mobile-gate{display:none;position:fixed;inset:0;z-index:200;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;gap:1.4rem;text-align:center;padding:2rem}
+#mobile-gate .mark{font-family:var(--serif);font-weight:500;font-size:1.4rem;letter-spacing:.3em;text-transform:uppercase;color:var(--text)}
+#mobile-gate .sep{width:56px;height:1px;background:rgba(194,160,95,.6)}
+#mobile-gate p{max-width:32ch;font-size:.92rem;line-height:1.7;color:var(--text-dim)}
+
+@media(max-width:768px){
+  header.site{padding:calc(.9rem + env(safe-area-inset-top)) 1.1rem .9rem}
+  header.site .brand{font-size:.8rem;letter-spacing:.2em;gap:.55rem}
+  header.site .brand svg{width:22px;height:22px}
+  header.site .back{display:none}
+  header.site .cta{font-size:.56rem;padding:.7em 1.2em}
+  #cap{top:calc(3.9rem + env(safe-area-inset-top));left:1.1rem;font-size:.54rem;letter-spacing:.22em}
+
+  /* paneles: una columna, con aire y sin apretar contra los bordes */
+  .panel{padding:calc(4.4rem + env(safe-area-inset-top)) 1.1rem 4rem}
+  .panel-inner{width:100%!important}
+  .glass{padding:20px 18px;border-radius:16px}
+  .glass h2{font-size:clamp(1.2rem,5.8vw,1.6rem);line-height:1.28}
+  .glass p{font-size:.9rem;line-height:1.65}
+  .panel .stack{gap:10px}
+  .mini{padding:16px 16px}
+  .mini h3{font-size:.94rem}
+  .mini p{font-size:.84rem;line-height:1.6}
+  .route-mini{grid-template-columns:1fr;gap:7px}
+  .route-mini li{padding:12px 14px;font-size:.82rem}
+  .chips{gap:7px}
+  .chip{font-size:.74rem;padding:8px 12px}
+  .badge{font-size:9px;padding:5px 10px}
+
+  /* textos del viaje: grandes pero respirando */
+  .chapter{padding:0 1.6rem}
+  .chapter .kicker{font-size:.54rem;letter-spacing:.32em;margin-bottom:.8rem}
+  .chapter h2{font-size:clamp(1.55rem,7.6vw,2.15rem);line-height:1.22}
+  .chapter p{font-size:.85rem;line-height:1.65;max-width:34ch}
+  .hero-film h1{font-size:clamp(1.85rem,8.8vw,2.5rem);line-height:1.16}
+  .hero-film .lede{font-size:.88rem;line-height:1.68;max-width:32ch}
+  .hero-film .hint{bottom:3.4rem;font-size:.52rem;letter-spacing:.28em}
+  .btn{padding:13px 22px;font-size:12.5px}
+  #estado{height:2.4rem}
+  #estado .track{font-size:.54rem;gap:2.4rem}
+}
+</style>
+</head>
+<body>
+
+
+
+<div id="loader">
+  <div class="mark">TU <b>SONRISA</b></div>
+  <div class="bar"><i id="loadbar"></i></div>
+  <small>Recorrido completo · 50 espacios reales</small>
+  <button id="enter">Entrar</button>
+</div>
+
+<header class="site">
+  <a class="brand" href="index.html">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6C20 6 12 14 12 25c0 8 3 12 5 19s3 14 7 14 4-8 8-8 4 8 8 8 5-7 7-14 5-11 5-19C52 14 44 6 32 6z" fill="#6FC7D1"/><path d="M24 22c2-3 6-4 8-1 2-3 6-2 8 1 2 4-2 8-8 12-6-4-10-8-8-12z" fill="#0B222E"/></svg>
+    Tu Sonrisa
+  </a>
+  <div style="display:flex;align-items:center;gap:.7rem">
+    <a class="back" href="index.html">← Volver al sitio</a>
+    <a class="cta" href="https://wa.me/50370211900?text=Hola%20Tu%20Sonrisa%2C%20acabo%20de%20hacer%20el%20recorrido%20virtual%20y%20quiero%20agendar%20mi%20evaluaci%C3%B3n." target="_blank" rel="noopener">Agendar cita</a>
+  </div>
+</header>
+<div id="cap"><b id="capN">I</b><span id="capT">Planta baja</span></div>
+
+<!-- ============ CAPÍTULO I · PLANTA BAJA ============ -->
+<div class="trk" id="trkA">
+  <div class="stage">
+    <video muted playsinline preload="auto"></video>
+
+    <section class="chapter hero-film" data-t="0,3.5">
+      <span class="eyebrow">Recorrido virtual completo · Clínica Dental Tu Sonrisa</span>
+      <h1>Conocé la clínica<br><em>antes de tu primera cita.</em></h1>
+      <p class="lede">Tres capítulos, cincuenta espacios reales, un solo viaje continuo controlado por tu scroll. Bajá despacio.</p>
+      <div class="hint">Bajá despacio</div>
+    </section>
+    <section class="chapter" data-t="5,10.5">
+      <div class="kicker">La promesa</div>
+      <h2>Odontología<br><em>de una sola cita</em></h2>
+      <p>Lo dice la valla de la entrada — y lo respalda todo lo que estás a punto de ver.</p>
+    </section>
+    <section class="chapter" data-t="17,20.5">
+      <div class="kicker">Planta baja</div>
+      <h2>Recibirte bien<br><em>es parte del tratamiento</em></h2>
+    </section>
+    <section class="chapter" data-t="27,31.5">
+      <div class="kicker">El laboratorio a la vista</div>
+      <h2>La tecnología no se esconde:<br><em>se muestra en vitrinas</em></h2>
+    </section>
+    <section class="chapter" data-t="40.5,43.5">
+      <div class="kicker">Subimos</div>
+      <h2>Dos niveles<br><em>dedicados a tu sonrisa</em></h2>
+    </section>
+
+    <div class="panel" data-panel>
+      <div class="panel-inner">
+        <div class="glass" style="margin-bottom:12px">
+          <span class="label">Bienvenido a Tu Sonrisa</span>
+          <h2>Una clínica integral: todo pasa aquí adentro.</h2>
+        </div>
+        <div class="stack cols-3">
+          <div class="glass mini"><span class="idx num">01</span><h3>5 especialidades, un techo.</h3><p>General, endodoncia, cirugía maxilofacial, ortodoncia y diseño de sonrisa — sin referirte a otros centros.</p></div>
+          <div class="glass mini"><span class="idx num">02</span><h3>14 profesionales activos.</h3><p>Especialistas dedicados por área, dirigidos por la Dra. Stephanie Palacios.</p></div>
+          <div class="glass mini"><span class="idx num">03</span><h3>Precios publicados.</h3><p>Más de 170 procedimientos con precio definido y presupuesto por escrito antes de empezar.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" data-panel>
+      <div class="panel-inner" style="width:min(100%,860px)">
+        <div class="glass" style="margin-bottom:12px">
+          <span class="label">Lo que dice el neón</span>
+          <h2>«Amamos hacerte sonreír con confianza» — <em>y lo cumplimos en una sola cita, sin dolor.</em></h2>
+        </div>
+        <div class="stack cols-2">
+          <div class="glass mini">
+            <span class="badge gold">Una sola cita</span>
+            <h3>Diagnóstico, tratamiento y restauración el mismo día</h3>
+            <p>Imagen 3D propia, especialistas en sitio y coronas fresadas al momento: cuando el diagnóstico lo permite, salís con el tratamiento resuelto.</p>
+          </div>
+          <div class="glass mini">
+            <span class="badge rosa">Sin dolor</span>
+            <h3>Anestesia, sedación consciente y especialistas por área</h3>
+            <p>La frase no es publicidad: es protocolo. Sedación disponible para procedimientos extensos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- interludio I→II -->
+<section class="inter" id="intAB">
+  <div class="in">
+    <div class="cnum">II</div>
+    <span class="label">Capítulo dos</span>
+    <h2>Subimos al piso de <em>las salas de tratamiento.</em></h2>
+    <p>Sofás verdes, la sala azul de mármol y el gran salón operativo con techo de hojas — el corazón clínico de Tu Sonrisa.</p>
+    <div class="flecha"></div>
+  </div>
+</section>
+
+<!-- ============ CAPÍTULO II · SALAS DE TRATAMIENTO ============ -->
+<div class="trk" id="trkB">
+  <div class="stage">
+    <video muted playsinline preload="none"></video>
+
+    <section class="chapter" data-t="1,6.5">
+      <div class="kicker">Segundo nivel</div>
+      <h2>Cada espacio, pensado<br><em>para quitarte el miedo</em></h2>
+    </section>
+    <section class="chapter" data-t="13,19">
+      <div class="kicker">Salas de tratamiento</div>
+      <h2>Cada sala, un ambiente:<br><em>calma antes que clínica</em></h2>
+    </section>
+    <section class="chapter" data-t="24.5,27.5">
+      <div class="kicker">Rehabilitación</div>
+      <h2>Aquí se planifican<br><em>coronas y sonrisas nuevas</em></h2>
+    </section>
+    <section class="chapter" data-t="33,40">
+      <div class="kicker">El salón operativo</div>
+      <h2>5 especialidades<br><em>bajo un techo de hojas</em></h2>
+    </section>
+    <section class="chapter" data-t="53,59">
+      <div class="kicker">Trabajo real</div>
+      <h2>Cada sillón, un caso<br><em>resuelto el mismo día</em></h2>
+    </section>
+
+    <div class="panel" data-panel>
+      <div class="panel-inner" style="width:min(100%,760px)">
+        <div class="glass">
+          <span class="label">Pensada para vos</span>
+          <h2>Comodidad de clínica internacional, en San Salvador.</h2>
+          <div class="chips" style="margin-top:16px">
+            <span class="chip key"><b>L–V</b>8:00 a.m. – 5:00 p.m.</span>
+            <span class="chip key"><b>Sáb</b>8:00 a.m. – 2:00 p.m.</span>
+            <span class="chip"><b>Walk-in</b>según disponibilidad del día</span>
+            <span class="chip"><b>WhatsApp</b>confirmación y recordatorio de citas</span>
+            <span class="chip"><b>Digital</b>expediente, recetas y presupuesto en PDF</span>
+          </div>
+          <p style="margin-top:14px">Tu Sonrisa, nuestro asistente virtual, te agenda, cotiza y resuelve dudas al instante — <b style="color:var(--aqua)">+503 7021 1900</b>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" data-panel>
+      <div class="panel-inner" style="width:min(100%,820px)">
+        <div class="glass">
+          <span class="label">Lo que se hace en estas salas</span>
+          <h2>Ocho áreas, precios desde el primer día.</h2>
+          <ol class="route-mini" style="margin-top:16px">
+            <li><span><b>Evaluación</b> + plan por escrito</span><span class="v num">desde $25</span></li>
+            <li><span><b>Limpieza</b> profilaxis completa</span><span class="v num">$30</span></li>
+            <li><span><b>Endodoncia</b> por pieza</span><span class="v num">$275</span></li>
+            <li><span><b>Cordales</b> cirugía maxilofacial</span><span class="v num">desde $150</span></li>
+            <li><span><b>Blanqueamiento</b> en clínica</span><span class="v num">$200</span></li>
+            <li><span><b>Carillas EMAX</b> diseño de sonrisa</span><span class="v num">$500</span></li>
+            <li><span><b>Coronas</b> libres de metal</span><span class="v num">desde $300</span></li>
+            <li><span><b>Implantes</b> planificados en 3D</span><span class="v num">$1,000</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- interludio II→III -->
+<section class="inter" id="intBC">
+  <div class="in">
+    <div class="cnum">III</div>
+    <span class="label">Capítulo tres</span>
+    <h2>Donde tu caso se estudia — <em>y tu sonrisa se fabrica.</em></h2>
+    <p>Cubículos privados, radiología 3D con tomógrafo propio y el laboratorio CAD/CAM donde tu corona nace el mismo día.</p>
+    <div class="flecha"></div>
+  </div>
+</section>
+
+<!-- ============ CAPÍTULO III · CUBÍCULOS PRIVADOS ============ -->
+<div class="trk" id="trkC">
+  <div class="stage">
+    <video muted playsinline preload="none"></video>
+
+    <section class="chapter" data-t="1,8">
+      <div class="kicker">Atención privada</div>
+      <h2>Cubículos individuales:<br><em>tu tratamiento, tu espacio</em></h2>
+    </section>
+    <section class="chapter" data-t="17,23">
+      <div class="kicker">El detalle importa</div>
+      <h2>Instrumental estéril,<br><em>listo antes de que llegues</em></h2>
+    </section>
+    <section class="chapter" data-t="33,39">
+      <div class="kicker">Sala blanca</div>
+      <h2>Luz, calma<br><em>y nada de ruido</em></h2>
+    </section>
+
+    <div class="panel" data-panel>
+      <div class="panel-inner" style="width:min(100%,760px)">
+        <div class="glass">
+          <span class="label">Quiénes te atienden</span>
+          <h2>14 profesionales, una sola dirección médica.</h2>
+          <div class="stack cols-2" style="margin-top:16px">
+            <div class="glass mini">
+              <span class="badge gold">Dirección médica</span>
+              <h3>Dra. Stephanie Palacios</h3>
+              <p>Fundadora. Odontología general, endodoncia, cirugía maxilofacial y diseño de sonrisa.</p>
+            </div>
+            <div class="glass mini">
+              <span class="badge">El equipo</span>
+              <h3>Especialistas dedicados por área</h3>
+              <p>3 cirujanos maxilofaciales · 4 endodoncistas · 1 ortodoncista · 6 en diseño de sonrisa · 12 en odontología general.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- interludio III→IV -->
+<section class="inter" id="intCD">
+  <div class="in">
+    <div class="cnum">IV</div>
+    <span class="label">Capítulo final</span>
+    <h2>Donde tu caso se estudia — <em>y tu sonrisa se fabrica.</em></h2>
+    <p>Sala de juntas, radiología 3D con tomógrafo propio y el laboratorio CAD/CAM donde tu corona nace el mismo día.</p>
+    <div class="flecha"></div>
+  </div>
+</section>
+
+<!-- ============ CAPÍTULO IV · DIAGNÓSTICO Y LABORATORIO ============ -->
+<div class="trk" id="trkD">
+  <div class="stage">
+    <video muted playsinline preload="none"></video>
+
+    <section class="chapter" data-t="1,7">
+      <div class="kicker">Planificación</div>
+      <h2>Tu caso se estudia<br><em>antes de tocarte un diente</em></h2>
+    </section>
+    <section class="chapter" data-t="11,15.5">
+      <div class="kicker">Radiología 3D</div>
+      <h2>El diagnóstico no sale a la calle:<br><em>se toma aquí</em></h2>
+    </section>
+    <section class="chapter" data-t="25,31">
+      <div class="kicker">Laboratorio digital</div>
+      <h2>Y aquí nace<br><em>tu nueva sonrisa</em></h2>
+    </section>
+    <section class="chapter" data-t="41,47">
+      <div class="kicker">Última sala</div>
+      <h2>Hasta la última sala<br><em>cuida el mismo detalle</em></h2>
+    </section>
+    <section class="chapter" data-t="48.5,52">
+      <div class="kicker">La bajada</div>
+      <h2>Cincuenta espacios después,<br><em>volvemos a la calle</em></h2>
+    </section>
+
+    <div class="panel" data-panel>
+      <div class="panel-inner" style="width:min(100%,760px)">
+        <div class="glass">
+          <span class="label">Radiología e imagen 3D</span>
+          <h2>Tomografía propia: <em>tu implante se planifica en 3D.</em></h2>
+          <p style="margin-top:6px">Radiografía digital panorámica, cefalométrica y periapical — y tomografía por pieza, cuadrante o arcada completa, con resultados al instante en tu expediente.</p>
+          <div class="chips">
+            <span class="chip"><b>$5</b>periapical</span>
+            <span class="chip"><b>$20</b>panorámica</span>
+            <span class="chip key"><b>$80+</b>tomografía 3D</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" data-panel>
+      <div class="panel-inner" style="width:min(100%,820px)">
+        <div class="glass" style="margin-bottom:12px">
+          <span class="label">Laboratorio digital CAD/CAM</span>
+          <h2>Tu corona se diseña, fresa y glasea aquí — <em>por eso sale el mismo día.</em></h2>
+        </div>
+        <div class="stack cols-3">
+          <div class="glass mini"><span class="idx num">01</span><h3>Escaneo sin moldes</h3><p>Impresión digital de tu boca, sin pastas incómodas.</p></div>
+          <div class="glass mini"><span class="idx num">02</span><h3>Diseño en pantalla</h3><p>Ves tu restauración en 3D antes de fabricarla.</p></div>
+          <div class="glass mini"><span class="idx num">03</span><h3>Fresado en cerámica</h3><p>EMAX, zirconio, Empress o Tessera — de 45 min a 2 horas.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" data-panel>
+      <div class="panel-inner" style="width:min(100%,640px);text-align:center">
+        <div class="glass" style="padding:34px 30px">
+          <span class="label">Fin del recorrido</span>
+          <h2>Ya conocés la clínica completa.<br><em>Ahora falta tu sonrisa.</em></h2>
+          <p style="margin-top:12px">Empezá por la evaluación: diagnóstico, plan de tratamiento y presupuesto por escrito.</p>
+          <p class="num lev" style="margin-top:16px;font-family:var(--serif);font-size:clamp(1.4rem,4vw,1.9rem);color:var(--accent)">Evaluación · $25</p>
+          <div style="margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+            <a class="btn btn-solid" href="https://wa.me/50370211900?text=Hola%20Tu%20Sonrisa%2C%20termin%C3%A9%20el%20recorrido%20virtual%20completo%20y%20quiero%20agendar%20mi%20evaluaci%C3%B3n%20de%20%2425." target="_blank" rel="noopener">Agendar por WhatsApp</a>
+            <a class="btn btn-ghost" href="index.html">Volver al sitio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="estado" aria-label="Estado de la clínica">
+  <div class="track" id="estado-track"></div>
+</div>
+
+<script>
+(function () {
+"use strict";
+
+/* móvil: mismo viaje, films ligeros (720p) para que el scrub sea fluido */
+var MOBILE = matchMedia('(pointer: coarse)').matches && matchMedia('(max-width: 920px)').matches;
+var MSRC = function(u){ return MOBILE ? u.replace('.mp4','_m.mp4') : u; };
+
+/* ============================================================
+   3 CAPÍTULOS · cada uno con su film, guion y paneles.
+   Films retimed 1.25x: A=44s (11 tramos), B=64s (16), C=92s (23).
+   ============================================================ */
+var TRACKS = [
+  { el:'trkA', url:MSRC('public/TS_A.mp4'), ref:44, cap:['I','Planta baja'], script:[
+      { v0:0,    v1:4,    len:32 },
+      { v0:4,    v1:16,   len:62 },
+      { v0:16,   v1:21,   len:30 },
+      { v0:21,   v1:24.5, len:50, stop:0 },
+      { v0:24.5, v1:33,   len:46 },
+      { v0:33,   v1:36.5, len:52, stop:1 },
+      { v0:36.5, v1:44,   len:42 }
+  ]},
+  { el:'trkB', url:MSRC('public/TS_B.mp4'), ref:60, cap:['II','Salas de tratamiento'], script:[
+      { v0:0,    v1:8.5,  len:48 },
+      { v0:8.5,  v1:12,   len:48, stop:0 },
+      { v0:12,   v1:28,   len:80 },
+      { v0:28,   v1:42,   len:72 },
+      { v0:42,   v1:45.5, len:52, stop:1 },
+      { v0:45.5, v1:60,   len:70 }
+  ]},
+  { el:'trkC', url:MSRC('public/TS_C.mp4'), ref:40, cap:['III','Cubículos privados'], script:[
+      { v0:0,    v1:12.5, len:62 },
+      { v0:12.5, v1:16,   len:50, stop:0 },
+      { v0:16,   v1:40,   len:112 }
+  ]},
+  { el:'trkD', url:MSRC('public/TS_D.mp4'), ref:56, cap:['IV','Diagnóstico y laboratorio'], script:[
+      { v0:0,    v1:16.5, len:80 },
+      { v0:16.5, v1:20,   len:50, stop:0 },
+      { v0:20,   v1:36.5, len:80 },
+      { v0:36.5, v1:40,   len:52, stop:1 },
+      { v0:40,   v1:52.5, len:64 },
+      { v0:52.5, v1:56,   len:58, stop:2 }
+  ]}
+];
+
+var loader = document.getElementById('loader');
+var loadbar= document.getElementById('loadbar');
+var enterBtn = document.getElementById('enter');
+var capBox = document.getElementById('cap'), capN = document.getElementById('capN'), capT = document.getElementById('capT');
+
+function ramp(p){
+  var IN = 0.16, OUT = 0.16;
+  if (p < IN) return p / IN;
+  if (p > 1 - OUT) return (1 - p) / OUT;
+  return 1;
+}
+function rampHold(p){ var IN = 0.16; return p < IN ? p / IN : 1; }
+
+var tracks = TRACKS.map(function(cfg, ti){
+  var root = document.getElementById(cfg.el);
+  var video = root.querySelector('video');
+  var panels = [].slice.call(root.querySelectorAll('[data-panel]'));
+  var chapters = [].map.call(root.querySelectorAll('.chapter'), function(el){
+    var t = el.dataset.t.split(',');
+    return { el:el, a:+t[0], b:+t[1] };
+  });
+  var TOTAL_VH = cfg.script.reduce(function(s,z){ return s + z.len; }, 0);
+  root.style.height = (TOTAL_VH + 100) + 'vh';
+  return {
+    cfg:cfg, root:root, video:video, panels:panels, chapters:chapters,
+    TOTAL_VH:TOTAL_VH, duration:0, target:0, current:0, videoTime:0, lastSeekDone:0,
+    activePanel:-1, activePanelP:0, inView:false, fetched:false,
+    chapterCache:chapters.map(function(){ return -1; }),
+    panelCache:panels.map(function(){ return -1; }),
+    lastStop: (function(){ var m=-1; cfg.script.forEach(function(z){ if(z.stop!==undefined && z.stop>m) m=z.stop; }); return m; })()
+  };
+});
+
+/* carga: A streaming ya; B y C se cargan al acercarse. Blob para seeks locales. */
+function fetchBlob(t){
+  if (t.fetched) return; t.fetched = true;
+  fetch(t.cfg.url).then(async function(r){
+    if (!r.ok) throw new Error(r.status);
+    var total = +r.headers.get('Content-Length') || 0;
+    var reader = r.body.getReader();
+    var chunks = [], received = 0;
+    for (;;) {
+      var res = await reader.read();
+      if (res.done) break;
+      chunks.push(res.value);
+      received += res.value.length;
+      if (t === tracks[0] && total && !loader.classList.contains('done')) {
+        loadbar.style.width = Math.min(100, received / total * 100) + '%';
+      }
+    }
+    return new Blob(chunks, { type:'video/mp4' });
+  }).then(function(blob){
+    var tt = t.video.currentTime;
+    t.video.src = URL.createObjectURL(blob);
+    t.video.load();
+    t.video.addEventListener('loadedmetadata', function(){
+      t.duration = t.video.duration;
+      t.video.currentTime = t.current = tt;
+      if (t === tracks[0]) ready();
+    }, { once:true });
+  }).catch(function(){ if (t === tracks[0]) ready(); });
+}
+
+tracks[0].video.src = tracks[0].cfg.url;
+tracks[0].video.load();
+tracks[0].video.addEventListener('loadedmetadata', function(){ tracks[0].duration = tracks[0].video.duration; });
+fetchBlob(tracks[0]);
+
+function ensureLoaded(t){
+  if (!t.video.src) {
+    t.video.src = t.cfg.url; t.video.preload = 'auto'; t.video.load();
+    t.video.addEventListener('loadedmetadata', function(){ t.duration = t.video.duration; });
+  }
+  fetchBlob(t);
+}
+
+var readyShown = false;
+function ready(){ if(readyShown) return; readyShown = true; loadbar.style.width = '100%'; enterBtn.style.display = 'inline-flex'; }
+/* Entrar se habilita con el capítulo I completo en memoria; respaldo a 45s */
+setTimeout(ready, 45000);
+enterBtn.addEventListener('click', function(){ loader.classList.add('done'); capBox.classList.add('on'); });
+
+function onScroll(){
+  var vh = innerHeight / 100;
+  var current = null;
+  tracks.forEach(function(t, ti){
+    var rect = t.root.getBoundingClientRect();
+    t.inView = rect.top < innerHeight && rect.bottom > 0;
+    if (rect.top < innerHeight * 0.6 && rect.bottom > innerHeight * 0.4) current = t;
+    /* precarga del siguiente capítulo al pasar el 40% del actual */
+    var y = Math.max(0, -rect.top);
+    var prog = y / Math.max(1, rect.height - innerHeight);
+    if (prog > (MOBILE ? 0.25 : 0.4) && tracks[ti+1]) ensureLoaded(tracks[ti+1]);
+    if (!t.inView) return;
+    y = Math.min(y, t.TOTAL_VH * vh - 1);
+    var scale = t.duration ? (t.duration - 0.05) / t.cfg.ref : 1;
+    var acc = 0;
+    t.activePanel = -1; t.activePanelP = 0;
+    var tt = t.cfg.script[t.cfg.script.length - 1].v1;
+    for (var i = 0; i < t.cfg.script.length; i++) {
+      var z = t.cfg.script[i], zpx = z.len * vh;
+      if (y < acc + zpx) {
+        var p = (y - acc) / zpx;
+        tt = z.v0 + (z.v1 - z.v0) * p;
+        if (z.stop !== undefined) { t.activePanel = z.stop; t.activePanelP = p; }
+        break;
+      }
+      acc += zpx;
+    }
+    t.videoTime = tt;
+    if (t.duration) {
+      t.target = Math.min(t.duration - 0.05, tt * scale);
+      /* si el rAF viene frenado (Safari móvil, pestaña ocupada), movemos el film aquí mismo */
+      var jump = Math.abs(t.video.currentTime - t.target);
+      if (!t.video.seeking && (jump > 1.2 || (performance.now() - lastTick > 180 && jump > 0.25))) {
+        t.video.currentTime = t.current = t.target;
+        t.lastSeekDone = performance.now();
+      }
+      render(t);
+    }
+  });
+  if (current) { capN.textContent = current.cfg.cap[0]; capT.textContent = current.cfg.cap[1]; }
+}
+addEventListener('scroll', onScroll, { passive:true });
+addEventListener('resize', onScroll);
+
+/* paneles: auto-escala sin scroll interno */
+function fitPanels(){
+  var avail = innerHeight - Math.max(120, innerHeight * 0.16);
+  tracks.forEach(function(t){
+    t.panels.forEach(function(pn){
+      var inner = pn.querySelector('.panel-inner');
+      inner.style.transform = 'none';
+      var h = inner.scrollHeight;
+      var s = h > avail ? Math.max(0.55, avail / h) : 1;
+      inner.style.transform = s < 1 ? 'scale(' + s.toFixed(3) + ')' : 'none';
+    });
+  });
+}
+addEventListener('resize', fitPanels);
+addEventListener('load', fitPanels);
+setTimeout(fitPanels, 400);
+
+var FRAME = 1 / 24;
+var lastTick = 0;
+tracks.forEach(function(t){
+  t.video.addEventListener('seeked', function(){ t.lastSeekDone = performance.now(); });
+});
+(function tick(){
+  lastTick = performance.now();
+  tracks.forEach(function(t){
+    if (!t.inView || !t.duration) return;
+    t.current += (t.target - t.current) * 0.22;
+    var stuck = performance.now() - t.lastSeekDone > 300;
+    if ((!t.video.seeking || stuck) && Math.abs(t.video.currentTime - t.current) > FRAME / 2) {
+      t.video.currentTime = t.current;
+      t.lastSeekDone = performance.now();
+    }
+    render(t);
+  });
+  requestAnimationFrame(tick);
+})();
+
+function render(t){
+  var panelVisible = t.activePanel >= 0
+    ? (t.activePanel === t.lastStop && t === tracks[tracks.length-1] ? rampHold(t.activePanelP) : ramp(t.activePanelP))
+    : 0;
+  t.chapters.forEach(function(c, idx){
+    var o = 0;
+    if (t.videoTime >= c.a && t.videoTime <= c.b) {
+      var p = (t.videoTime - c.a) / (c.b - c.a);
+      o = ramp(p);
+      if (c.a === 0 && t.videoTime < 0.5) o = 1;
+    }
+    o *= (1 - panelVisible);
+    o = Math.round(o * 100) / 100;
+    if (o === t.chapterCache[idx]) return;
+    t.chapterCache[idx] = o;
+    c.el.style.opacity = o;
+    c.el.style.visibility = o > 0 ? 'visible' : 'hidden';
+    c.el.style.transform = 'translateY(' + ((1 - o) * 18) + 'px)';
+  });
+  t.panels.forEach(function(pn, i){
+    var on = i === t.activePanel;
+    var o = on ? Math.round(panelVisible * 100) / 100 : 0;
+    if (o !== t.panelCache[i]) {
+      t.panelCache[i] = o;
+      pn.style.opacity = o;
+      pn.style.visibility = o > 0 ? 'visible' : 'hidden';
+      var isOn = on && o > 0.15;
+      if (pn.classList.contains('on') !== isOn) pn.classList.toggle('on', isOn);
+    }
+  });
+}
+
+/* interludios */
+var iio = new IntersectionObserver(function(es){
+  es.forEach(function(e){ e.target.classList.toggle('vis', e.isIntersecting); });
+},{threshold:.3});
+document.querySelectorAll('.inter').forEach(function(s){ iio.observe(s); });
+
+/* marquee de estado en vivo */
+(function(){
+  var now = new Date(Date.now() + (new Date().getTimezoneOffset() - 360)*60000);
+  var d = now.getDay(), h = now.getHours() + now.getMinutes()/60;
+  var estado;
+  if (d>=1 && d<=5) estado = (h>=8 && h<17) ? 'Abierta ahora · hasta 5:00 pm' : 'Cerrada · L–V 8:00 am';
+  else if (d===6)   estado = (h>=8 && h<14) ? 'Abierta ahora · hasta 2:00 pm' : 'Cerrada · Sáb 8:00 am';
+  else              estado = 'Domingo cerrado · abrimos lunes 8:00 am';
+  var items = ['Clínica <b>' + estado + '</b>','Recorrido completo · <b>50 espacios reales</b>','Evaluación <b>desde $25</b>','WhatsApp <b>+503 7021 1900</b>','<b>Tu Sonrisa</b> te agenda al instante'];
+  document.getElementById('estado-track').innerHTML =
+    (items.join('<span aria-hidden="true">·</span>') + '<span aria-hidden="true">·</span>').repeat(2);
+})();
+
+onScroll();
+})();
+</script>
+</body>
+</html>

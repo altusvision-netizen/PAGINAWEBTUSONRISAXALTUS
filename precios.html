@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarifario completo — Clínica Dental Tu Sonrisa · San Salvador</title>
+<meta name="description" content="Más de 170 procedimientos con precio publicado y transparente en USD. Armá tu consulta y pedí tu cita por WhatsApp. Clínica Dental Tu Sonrisa, San Salvador.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 6C20 6 12 14 12 25c0 8 3 12 5 19s3 14 7 14 4-8 8-8 4 8 8 8 5-7 7-14 5-11 5-19C52 14 44 6 32 6z' fill='%230E5A68'/%3E%3Cpath d='M24 22c2-3 6-4 8-1 2-3 6-2 8 1 2 4-2 8-8 12-6-4-10-8-8-12z' fill='%23F6F4EF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#F6F4EF; --paper:#FFFFFF; --ink:#0B222E; --ink2:#3C5866;
+  --teal:#0E5A68; --teal-d:#0A4551; --aqua:#6FC7D1; --aqua-soft:#E3F2F4; --gold:#C2A05F;
+  --line:rgba(11,34,46,.12); --line-soft:rgba(11,34,46,.07);
+  --f-d:'Domine',Georgia,serif; --f-s:'Montserrat',-apple-system,Helvetica,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ivory);color:var(--ink);font-family:var(--f-s);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--f-s)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(18px,4vw,44px)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(246,244,239,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line-soft)}
+header .hwrap{max-width:1120px;margin:0 auto;padding:0 clamp(18px,4vw,44px);height:72px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand svg{width:30px;height:30px}
+.brand b{font-family:var(--f-d);font-size:15px;letter-spacing:.08em}
+.brand small{display:block;font-size:8px;letter-spacing:.3em;color:var(--teal);text-transform:uppercase;font-weight:700}
+.back{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
+#langBtn{border:1px solid var(--line);background:transparent;border-radius:100px;padding:8px 13px;font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--ink2);cursor:pointer;display:flex;align-items:center;gap:6px}
+#langBtn b{color:var(--teal)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--teal);color:#fff;transition:transform .25s,background .25s;border:none;cursor:pointer}
+.btn:hover{transform:translateY(-2px);background:var(--teal-d)}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:#d4b478}
+
+.hero{padding:150px 0 46px}
+.klabel{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.klabel:before{content:"";width:30px;height:1px;background:var(--gold)}
+h1{font-family:var(--f-d);font-size:clamp(30px,4.4vw,52px);font-weight:700;line-height:1.1;letter-spacing:-.01em}
+.lead{color:var(--ink2);margin-top:14px;max-width:70ch;font-size:15px}
+.howto{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
+.howto span{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:1px solid var(--line-soft);border-radius:100px;padding:9px 16px;font-size:12px;font-weight:600;color:var(--ink2)}
+.howto span b{color:var(--gold);font-family:var(--f-d)}
+
+#tools{position:sticky;top:72px;z-index:90;background:var(--ivory);padding:16px 0 14px;border-bottom:1px solid var(--line-soft)}
+#search{width:100%;background:var(--paper);border:1px solid var(--line);border-radius:100px;padding:13px 20px;font-family:var(--f-s);font-size:14px;outline:none;color:var(--ink)}
+#search:focus{border-color:var(--teal)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-top:12px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex-shrink:0;background:var(--paper);border:1px solid var(--line);border-radius:100px;padding:9px 16px;font-size:11.5px;font-weight:700;letter-spacing:.04em;cursor:pointer;transition:all .25s;color:var(--ink2);white-space:nowrap}
+.chip:hover{border-color:var(--teal);color:var(--teal)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+
+main{padding:40px 0 140px}
+.cat{margin-bottom:44px;scroll-margin-top:190px}
+.cat h2{font-family:var(--f-d);font-size:clamp(20px,2.4vw,27px);font-weight:700;display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.cat h2 small{font-size:12px;font-family:var(--f-s);color:var(--ink2);font-weight:600;letter-spacing:.06em}
+.cat .desc{font-size:13.5px;color:var(--ink2);margin-bottom:16px;max-width:80ch}
+.tbl{background:var(--paper);border:1px solid var(--line-soft);border-radius:18px;overflow:hidden;box-shadow:0 16px 44px -34px rgba(11,34,46,.4)}
+.svc{display:grid;grid-template-columns:1fr auto auto auto;gap:8px 18px;align-items:center;padding:11px clamp(14px,2.2vw,24px);border-bottom:1px solid var(--line-soft);font-size:14px}
+.svc:last-child{border-bottom:none}
+.svc:hover{background:var(--aqua-soft)}
+.svc .mat{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+.svc .pr{font-weight:800;color:var(--teal);font-variant-numeric:tabular-nums;white-space:nowrap;min-width:72px;text-align:right}
+.svc .add{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--teal);font-size:18px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s;line-height:1}
+.svc .add:hover{background:var(--teal);border-color:var(--teal);color:#fff;transform:scale(1.08)}
+.svc .add.inC{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.empty{display:none;text-align:center;color:var(--ink2);padding:60px 0;font-size:15px}
+.empty b{font-family:var(--f-d);display:block;font-size:22px;color:var(--ink);margin-bottom:8px}
+
+.note{background:var(--paper);border:1px solid var(--line-soft);border-left:3px solid var(--gold);border-radius:14px;padding:18px 22px;font-size:12.5px;color:var(--ink2);margin:34px 0 0}
+.ctafin{margin-top:56px;background:var(--ink);border-radius:24px;padding:clamp(30px,5vw,54px);text-align:center;color:#fff}
+.ctafin h3{font-family:var(--f-d);font-size:clamp(22px,3vw,34px);font-weight:700;max-width:24ch;margin:0 auto}
+.ctafin p{color:rgba(255,255,255,.7);margin:12px auto 26px;max-width:52ch;font-size:14.5px}
+footer{background:#081821;color:rgba(242,239,232,.5);padding:34px 0;font-size:12px;text-align:center}
+
+/* ---------- carrito ---------- */
+#cartBar{position:fixed;left:50%;bottom:20px;transform:translate(-50%,140%);z-index:110;background:var(--ink);color:#fff;border-radius:100px;padding:12px 12px 12px 24px;display:flex;align-items:center;gap:18px;box-shadow:0 24px 60px -20px rgba(11,34,46,.65);transition:transform .45s cubic-bezier(.2,.65,.25,1);max-width:calc(100vw - 32px)}
+#cartBar.show{transform:translate(-50%,0)}
+#cartBar .cinfo{font-size:13px;font-weight:600;white-space:nowrap}
+#cartBar .cinfo b{color:var(--aqua);font-family:var(--f-d);font-size:15px}
+#cartBar .btn{padding:11px 20px;font-size:11.5px;background:var(--gold);color:var(--ink)}
+#drawer{position:fixed;inset:0;z-index:120;visibility:hidden}
+#drawer.open{visibility:visible}
+#drawer .dim{position:absolute;inset:0;background:rgba(11,34,46,.5);opacity:0;transition:opacity .4s}
+#drawer.open .dim{opacity:1}
+#drawer .panel{position:absolute;top:0;right:0;bottom:0;width:min(440px,92vw);background:var(--ivory);box-shadow:-30px 0 80px rgba(11,34,46,.3);transform:translateX(105%);transition:transform .45s cubic-bezier(.2,.65,.25,1);display:flex;flex-direction:column}
+#drawer.open .panel{transform:none}
+#drawer .dhead{padding:22px 24px;border-bottom:1px solid var(--line-soft);display:flex;align-items:center;justify-content:space-between}
+#drawer .dhead b{font-family:var(--f-d);font-size:19px}
+#drawer .dhead button{background:none;border:none;font-size:26px;cursor:pointer;color:var(--ink2);line-height:1}
+#drawer .items{flex:1;overflow-y:auto;padding:10px 24px}
+.citem{display:grid;grid-template-columns:1fr auto;gap:4px 14px;padding:15px 0;border-bottom:1px solid var(--line-soft)}
+.citem .nm{font-size:13.5px;font-weight:600;line-height:1.35}
+.citem .pr{font-weight:800;color:var(--teal);font-variant-numeric:tabular-nums;text-align:right;font-size:13.5px}
+.citem .qty{display:flex;align-items:center;gap:10px;margin-top:6px}
+.citem .qty button{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:var(--paper);cursor:pointer;font-size:14px;color:var(--ink);line-height:1}
+.citem .qty button:hover{border-color:var(--teal);color:var(--teal)}
+.citem .qty span{font-size:12.5px;font-weight:700;min-width:16px;text-align:center}
+.citem .rm{grid-column:2;justify-self:end;background:none;border:none;color:var(--ink2);font-size:11px;cursor:pointer;text-decoration:underline;margin-top:6px}
+#drawer .dfoot{padding:20px 24px 24px;border-top:1px solid var(--line-soft);background:var(--paper)}
+#drawer .total{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+#drawer .total span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);font-weight:700}
+#drawer .total b{font-family:var(--f-d);font-size:26px;color:var(--teal)}
+#drawer .tnote{font-size:11px;color:var(--ink2);margin-bottom:16px}
+#drawer .btn{width:100%;justify-content:center;padding:15px}
+#drawer .vac{text-align:center;color:var(--ink2);padding:60px 20px;font-size:14px}
+.toast{position:fixed;left:50%;bottom:86px;transform:translate(-50%,20px);z-index:150;background:var(--ink);color:#fff;border-radius:100px;padding:11px 20px;font-size:13px;font-weight:600;opacity:0;visibility:hidden;transition:all .4s}
+.toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+@media(max-width:640px){
+  .svc{grid-template-columns:1fr auto auto}
+  .svc .mat{display:none}
+  #cartBar .cinfo small{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hwrap">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 64 64"><path d="M32 6C20 6 12 14 12 25c0 8 3 12 5 19s3 14 7 14 4-8 8-8 4 8 8 8 5-7 7-14 5-11 5-19C52 14 44 6 32 6z" fill="#0E5A68"/><path d="M24 22c2-3 6-4 8-1 2-3 6-2 8 1 2 4-2 8-8 12-6-4-10-8-8-12z" fill="#F6F4EF"/></svg>
+      <span><b>TU SONRISA</b><small data-i="h.sub">Tarifario</small></span>
+    </a>
+    <a class="back" href="index.html" data-i="h.back">← Volver al sitio</a>
+    <div style="display:flex;gap:10px;align-items:center">
+      <button id="langBtn"><b id="langOn">ES</b><span>·</span><span id="langOff">EN</span></button>
+      <a class="btn" href="https://wa.me/50370211900?text=Hola%20Tu%20Sonrisa%2C%20quiero%20agendar%20mi%20evaluaci%C3%B3n." target="_blank" rel="noopener" data-i="h.cta">Agendar</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="klabel" data-i="hero.k">Precios transparentes · USD</div>
+    <h1 data-i="hero.h">Tarifario completo de la clínica.</h1>
+    <p class="lead" data-i="hero.lead">Más de 170 procedimientos con precio definido, tomados directamente del sistema de gestión de la clínica. Armá tu lista con el botón <b>+</b> y consultá disponibilidad de citas por WhatsApp — acá no se paga nada en línea.</p>
+    <div class="howto">
+      <span><b>1</b><span data-i="how.1">Buscá tu tratamiento</span></span>
+      <span><b>2</b><span data-i="how.2">Agregalo con el botón +</span></span>
+      <span><b>3</b><span data-i="how.3">Enviá tu consulta por WhatsApp</span></span>
+    </div>
+  </div>
+</section>
+
+<div id="tools">
+  <div class="wrap">
+    <input id="search" type="search" placeholder="Buscá tu tratamiento: corona, cordal, blanqueamiento…" data-ph="search.ph">
+    <div class="chips" id="chips"></div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <div id="list"></div>
+    <div class="empty" id="empty"><b data-i="empty.h">No encontramos ese tratamiento</b><span data-i="empty.t">Escribile a Tu Sonrisa por WhatsApp y te cotiza al instante.</span></div>
+    <div class="note" data-i="note"><b>Nota:</b> Los precios pueden variar según el diagnóstico individual; el presupuesto definitivo se entrega tras la evaluación clínica. Se aceptan abonos por etapas conforme avanza el tratamiento. Precios en dólares de los Estados Unidos (USD).</div>
+    <div class="ctafin">
+      <h3 data-i="fin.h">¿No sabés qué tratamiento necesitás?</h3>
+      <p data-i="fin.t">Empezá por la evaluación ($25): salís con diagnóstico, plan de tratamiento y presupuesto por escrito. O escribile a Tu Sonrisa y te orienta al instante.</p>
+      <a class="btn btn-gold" href="https://wa.me/50370211900?text=Hola%20Tu%20Sonrisa%2C%20quiero%20una%20evaluaci%C3%B3n%20para%20saber%20qu%C3%A9%20necesita%20mi%20sonrisa." target="_blank" rel="noopener" data-i="fin.cta">Agendar evaluación — $25</a>
+    </div>
+  </div>
+</main>
+
+<footer>© <span id="yr"></span> Clínica Dental Tu Sonrisa · <a href="https://www.google.com/maps/search/?api=1&amp;query=Cl%C3%ADnica%20Dental%20Tu%20Sonrisa%2C%20Ave%20Dr%20Max%20Bloch%20171%2C%20San%20Salvador" target="_blank" rel="noopener" style="color:inherit">Ave. Dr. Max Bloch 171, San Salvador</a> · WhatsApp +503 7021 1900</footer>
+
+<!-- CARRITO -->
+<div id="cartBar">
+  <span class="cinfo"><span id="cbN">0</span> <span data-i="cart.serv">servicios</span> · <b id="cbT">$0</b> <small data-i="cart.est">estimado</small></span>
+  <button class="btn" id="cbOpen" data-i="cart.ver">Ver mi consulta</button>
+</div>
+<div id="drawer">
+  <div class="dim" id="dDim"></div>
+  <div class="panel">
+    <div class="dhead"><b data-i="cart.h">Mi consulta</b><button id="dClose" aria-label="Cerrar">×</button></div>
+    <div class="items" id="dItems"></div>
+    <div class="dfoot">
+      <div class="total"><span data-i="cart.tot">Total estimado</span><b id="dTotal">$0</b></div>
+      <p class="tnote" data-i="cart.note">Referencial — el presupuesto definitivo se entrega tras tu evaluación. No pagás nada en línea.</p>
+      <button class="btn btn-gold" id="dSend" data-i="cart.send">Consultar disponibilidad por WhatsApp</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast">Agregado</div>
+
+<script>
+/* ============ datos (es / material / precio / en) ============ */
+const DATA = [
+{id:"evaluaciones",cat:"Evaluaciones",en:"Exams",desc:"La puerta de entrada de todo paciente: de la evaluación sale tu plan de tratamiento con presupuesto por escrito.",descEn:"Every patient's entry point: your exam produces a treatment plan with a written quote.",items:[
+["Evaluación","","25","Dental exam"],
+["Evaluación + limpieza","","35","Exam + cleaning"],
+["Evaluación + radiografía panorámica","","35","Exam + panoramic X-ray"],
+["Evaluación con especialista en endodoncia","","40","Exam with endodontics specialist"],
+["Evaluación con especialista maxilofacial","","50","Exam with maxillofacial specialist"],
+["Evaluación con ortodoncista","","50","Exam with orthodontist"],
+["Evaluación, limpieza y radiografía panorámica","","50","Exam, cleaning & panoramic X-ray"]]},
+{id:"preventiva",cat:"Preventiva",en:"Preventive",desc:"Prevenir siempre cuesta menos que curar.",descEn:"Prevention always costs less than treatment.",items:[
+["Limpieza","","30","Dental cleaning"],
+["Sellante de fosas y fisuras (pieza)","","25","Pit & fissure sealant (per tooth)"]]},
+{id:"imagenologia",cat:"Imagenología",en:"Imaging",desc:"Radiografía digital y tomografía 3D realizadas en la clínica, sin referirte a un centro externo.",descEn:"Digital X-rays and 3D CBCT taken at the clinic — no external centers.",items:[
+["Radiografía periapical","","5","Periapical X-ray"],
+["Radiografía cefalométrica","","20","Cephalometric X-ray"],
+["Radiografía panorámica","","20","Panoramic X-ray"],
+["Tomografía por pieza","","80","CBCT scan (single tooth)"],
+["Tomografía por cuadrante","","100","CBCT scan (quadrant)"],
+["Tomografía completa","","150","Full CBCT scan"]]},
+{id:"operatoria",cat:"Operatoria",en:"Fillings & restorative",desc:"Obturaciones, reconstrucciones y recubrimientos. Se cobran por pieza tratada.",descEn:"Fillings, build-ups and pulp caps. Charged per treated tooth.",items:[
+["Obturaciones simples (pieza)","","35","Simple filling (per tooth)"],
+["Obturaciones con base (pieza)","","45","Filling with liner base (per tooth)"],
+["Reconstrucción de borde inferior (pieza)","","40","Lower edge build-up (per tooth)"],
+["Reconstrucción de borde superior (pieza)","","50","Upper edge build-up (per tooth)"],
+["Reconstrucción con resina","Resina","50","Resin build-up"],
+["Reconstrucción con fibra de vidrio","Fibra de vidrio","150","Fiberglass build-up"],
+["Recubrimiento pulpar (pieza)","","145","Pulp cap (per tooth)"],
+["Recubrimiento pulpar + reconstrucción de borde superior","","150","Pulp cap + upper edge build-up"],
+["Recubrimiento pulpar + gingivectomía + obturación (pieza)","","195","Pulp cap + gingivectomy + filling (per tooth)"],
+["Recubrimiento pulpar + laminado (pieza)","","225","Pulp cap + laminate (per tooth)"],
+["Recubrimiento pulpar + incrustación","","400","Pulp cap + inlay"],
+["Recubrimiento pulpar + incrustación EMAX (pieza)","EMAX","500","Pulp cap + EMAX inlay (per tooth)"],
+["Recubrimiento pulpar + gingivectomía + incrustación zirconio (pieza)","Zirconio","550","Pulp cap + gingivectomy + zirconia inlay (per tooth)"]]},
+{id:"estetica",cat:"Estética y diseño de sonrisa",en:"Cosmetic & smile design",desc:"Carillas, laminados y blanqueamiento. Sonrisas reales, no diseños falsos.",descEn:"Veneers, laminates and whitening. Real smiles, not fake designs.",items:[
+["Laminados dentales (pieza)","","125","Dental laminates (per tooth)"],
+["Blanqueamiento interno","","150","Internal whitening"],
+["Laminado + gingivectomía + sellante de fosas y fisuras (pieza)","","200","Laminate + gingivectomy + sealant (per tooth)"],
+["Blanqueamiento dental","","200","Teeth whitening"],
+["Laminado + blanqueamiento interno (pieza)","","275","Laminate + internal whitening (per tooth)"],
+["Carilla EMAX","EMAX","500","EMAX veneer"],
+["Carilla EMAX + blanqueamiento interno","EMAX","650","EMAX veneer + internal whitening"]]},
+{id:"endodoncia",cat:"Endodoncia",en:"Endodontics",desc:"Tratamiento de conductos con endodoncistas dedicados exclusivamente a esta especialidad.",descEn:"Root canals by endodontists dedicated exclusively to this specialty.",items:[
+["Endodoncia (pieza)","","275","Root canal (per tooth)"]]},
+{id:"endodoncia-combinada",cat:"Endodoncia combinada",en:"Endodontics combos",desc:"Endodoncia + rehabilitación de la pieza en un solo plan (por pieza).",descEn:"Root canal + tooth rehabilitation in one plan (per tooth).",items:[
+["Endodoncia + gingivectomía","","325","Root canal + gingivectomy"],
+["Endodoncia + obturación con resina","Resina","325","Root canal + resin filling"],
+["Endodoncia + laminado","","400","Root canal + laminate"],
+["Endodoncia + poste de fibra","Fibra","425","Root canal + fiber post"],
+["Endodoncia + reconstrucción con fibra de vidrio","Fibra de vidrio","425","Root canal + fiberglass build-up"],
+["Endodoncia + gingivectomía + poste de fibra","Fibra","475","Root canal + gingivectomy + fiber post"],
+["Endodoncia + blanqueamiento interno + laminado","","550","Root canal + internal whitening + laminate"],
+["Endodoncia + corona Empress","Empress","575","Root canal + Empress crown"],
+["Endodoncia + incrustación Empress","Empress","575","Root canal + Empress inlay"],
+["Endodoncia + poste de fibra de vidrio + blanqueamiento interno","Fibra de vidrio","575","Root canal + fiberglass post + internal whitening"],
+["Endodoncia + gingivectomía + corona Empress","Empress","625","Root canal + gingivectomy + Empress crown"],
+["Endodoncia + alisado radicular + incrustación Empress","Empress","650","Root canal + root planing + Empress inlay"],
+["Endodoncia + corona EMAX","EMAX","675","Root canal + EMAX crown"],
+["Endodoncia + corona Tessera","Tessera","675","Root canal + Tessera crown"],
+["Endodoncia + corona zirconio","Zirconio","675","Root canal + zirconia crown"],
+["Endodoncia + alisado radicular + gingivectomía + corona Empress","Empress","700","Root canal + root planing + gingivectomy + Empress crown"],
+["Endodoncia + alargamiento de corona + corona Empress","Empress","725","Root canal + crown lengthening + Empress crown"],
+["Endodoncia + gingivectomía + corona EMAX","EMAX","725","Root canal + gingivectomy + EMAX crown"],
+["Endodoncia + gingivectomía + corona zirconio","Zirconio","725","Root canal + gingivectomy + zirconia crown"],
+["Endodoncia + poste de fibra + corona Empress","Empress","725","Root canal + fiber post + Empress crown"],
+["Endodoncia + carilla EMAX","EMAX","775","Root canal + EMAX veneer"],
+["Endodoncia + gingivectomía + poste de fibra + corona Empress","Empress","775","Root canal + gingivectomy + fiber post + Empress crown"],
+["Endodoncia + gingivectomía + poste de fibra + incrustación Empress","Empress","775","Root canal + gingivectomy + fiber post + Empress inlay"],
+["Endodoncia + poste de fibra + corona zirconio","Zirconio","825","Root canal + fiber post + zirconia crown"],
+["Endodoncia + gingivectomía + poste de fibra + corona zirconio","Zirconio","875","Root canal + gingivectomy + fiber post + zirconia crown"],
+["Endodoncia + poste de fibra + gingivectomía + corona zirconio","Zirconio","875","Root canal + fiber post + gingivectomy + zirconia crown"],
+["Endodoncia + blanqueamiento interno + carilla","","925","Root canal + internal whitening + veneer"],
+["Endodoncia + retiro de poste + poste + corona","","925","Root canal + post removal + new post + crown"],
+["Endodoncia + blanqueamiento interno + poste de fibra + corona zirconio","Zirconio","975","Root canal + internal whitening + fiber post + zirconia crown"],
+["Hemisección + endodoncia + poste de fibra + gingivectomía + corona EMAX","EMAX","1025","Hemisection + root canal + fiber post + gingivectomy + EMAX crown"],
+["Hemisección + endodoncia + poste de fibra + corona zirconio","Zirconio","1075","Hemisection + root canal + fiber post + zirconia crown"]]},
+{id:"retratamiento",cat:"Retratamiento de endodoncia",en:"Root canal retreatment",desc:"Cuando una endodoncia previa falló, la retratamos y rehabilitamos la pieza (por pieza).",descEn:"When a previous root canal failed, we retreat and rehabilitate the tooth (per tooth).",items:[
+["Retratamiento de endodoncia","","375","Root canal retreatment"],
+["Retratamiento + laminado","","500","Retreatment + laminate"],
+["Retratamiento + poste de fibra","Fibra","525","Retreatment + fiber post"],
+["Retratamiento + reconstrucción de fibra de vidrio","Fibra de vidrio","525","Retreatment + fiberglass build-up"],
+["Retratamiento + gingivectomía + poste de fibra","Fibra","575","Retreatment + gingivectomy + fiber post"],
+["Retratamiento + retiro de poste + colocación de poste de fibra","Fibra","625","Retreatment + post removal + new fiber post"],
+["Retratamiento + retiro de poste + poste de fibra","Fibra","625","Retreatment + post removal + fiber post"],
+["Retratamiento + blanqueamiento interno + laminado","","650","Retreatment + internal whitening + laminate"],
+["Retratamiento + corona Empress","Empress","675","Retreatment + Empress crown"],
+["Retratamiento + incrustación Empress","Empress","675","Retreatment + Empress inlay"],
+["Retratamiento + retiro de poste + poste de fibra + gingivectomía","Fibra","675","Retreatment + post removal + fiber post + gingivectomy"],
+["Retratamiento + gingivectomía + corona Empress","Empress","725","Retreatment + gingivectomy + Empress crown"],
+["Retratamiento + corona EMAX","EMAX","775","Retreatment + EMAX crown"],
+["Retratamiento + corona zirconio","Zirconio","775","Retreatment + zirconia crown"],
+["Retratamiento + gingivectomía + corona zirconio","Zirconio","825","Retreatment + gingivectomy + zirconia crown"],
+["Retratamiento + poste de fibra + corona Empress","Empress","825","Retreatment + fiber post + Empress crown"],
+["Retratamiento + carilla EMAX","EMAX","875","Retreatment + EMAX veneer"],
+["Retratamiento + gingivectomía + poste de fibra + corona Empress","Empress","875","Retreatment + gingivectomy + fiber post + Empress crown"],
+["Retratamiento + retiro de poste + poste de fibra + corona Empress","Empress","925","Retreatment + post removal + fiber post + Empress crown"],
+["Retratamiento + poste de fibra + corona zirconio","Zirconio","925","Retreatment + fiber post + zirconia crown"],
+["Retratamiento + gingivectomía + poste de fibra + corona zirconio","Zirconio","975","Retreatment + gingivectomy + fiber post + zirconia crown"],
+["Retratamiento + retiro de poste + poste de fibra + gingivectomía + corona Empress","Empress","975","Retreatment + post removal + fiber post + gingivectomy + Empress crown"],
+["Retratamiento + alisado radicular + poste de fibra + corona EMAX","EMAX","1000","Retreatment + root planing + fiber post + EMAX crown"],
+["Retratamiento + blanqueamiento interno + carilla","","1025","Retreatment + internal whitening + veneer"],
+["Retratamiento + poste de fibra de vidrio + carilla EMAX","EMAX","1025","Retreatment + fiberglass post + EMAX veneer"],
+["Retratamiento + retiro de poste + poste de fibra + corona EMAX","EMAX","1025","Retreatment + post removal + fiber post + EMAX crown"],
+["Retratamiento + retiro de poste + poste de fibra + corona EMAX + gingivectomía","EMAX","1075","Retreatment + post removal + fiber post + EMAX crown + gingivectomy"],
+["Retratamiento + gingivectomía + hemisección + poste de fibra + corona zirconio","Zirconio","1125","Retreatment + gingivectomy + hemisection + fiber post + zirconia crown"]]},
+{id:"postes",cat:"Postes",en:"Posts",desc:"Postes de fibra de vidrio: refuerzo sin metal que preserva la estructura dental (por pieza).",descEn:"Fiberglass posts: metal-free reinforcement that preserves tooth structure (per tooth).",items:[
+["Retiro de poste","","100","Post removal"],
+["Colocación de poste de fibra de vidrio","Fibra de vidrio","150","Fiberglass post placement"],
+["Poste de fibra + gingivectomía","Fibra","200","Fiber post + gingivectomy"],
+["Retiro de poste + poste de fibra","Fibra","250","Post removal + fiber post"],
+["Colocación de poste de fibra + corona Empress","Empress","450","Fiber post + Empress crown"],
+["Colocación de poste + gingivectomía + corona Empress","Empress","500","Post + gingivectomy + Empress crown"],
+["Colocación de poste de fibra + corona zirconio","Zirconio","550","Fiber post + zirconia crown"],
+["Poste de fibra + corona EMAX","EMAX","550","Fiber post + EMAX crown"],
+["Retiro de poste + poste de fibra + corona Empress","Empress","550","Post removal + fiber post + Empress crown"],
+["Colocación de poste de fibra + gingivectomía + corona zirconio","Zirconio","600","Fiber post + gingivectomy + zirconia crown"],
+["Retiro de poste + colocación de poste de fibra + corona EMAX","EMAX","650","Post removal + fiber post + EMAX crown"],
+["Retiro de poste + poste de fibra + gingivectomía + corona EMAX","EMAX","700","Post removal + fiber post + gingivectomy + EMAX crown"]]},
+{id:"incrustaciones",cat:"Incrustaciones",en:"Inlays",desc:"Restauraciones parciales fresadas digitalmente, por pieza.",descEn:"Digitally milled partial restorations, per tooth.",items:[
+["Incrustación Empress (pieza)","Empress","300","Empress inlay (per tooth)"],
+["Incrustación Empress + gingivectomía (pieza)","Empress","350","Empress inlay + gingivectomy (per tooth)"],
+["Incrustación EMAX (pieza)","EMAX","400","EMAX inlay (per tooth)"]]},
+{id:"coronas",cat:"Coronas",en:"Crowns",desc:"Coronas libres de metal, diseñadas y fresadas con flujo digital CAD/CAM.",descEn:"Metal-free crowns, designed and milled with a digital CAD/CAM workflow.",items:[
+["Corona Empress CAD (pieza)","Empress","300","Empress CAD crown (per tooth)"],
+["Corona EMAX (pieza)","EMAX","400","EMAX crown (per tooth)"],
+["Corona material Tessera (pieza)","Tessera","400","Tessera crown (per tooth)"],
+["Corona zirconio (pieza)","Zirconio","400","Zirconia crown (per tooth)"],
+["Corona de zirconio sobre implante (6 meses después de colocar implante)","Zirconio","500","Zirconia crown on implant (6 months after placement)"],
+["Corona EMAX + poste de fibra","EMAX","550","EMAX crown + fiber post"]]},
+{id:"periodoncia",cat:"Periodoncia",en:"Periodontics",desc:"Salud de encías: alisado radicular y gingivectomía, por pieza, cuadrante o boca completa.",descEn:"Gum health: root planing and gingivectomy by tooth, quadrant or full mouth.",items:[
+["Gingivectomía por pieza","","50","Gingivectomy (per tooth)"],
+["Alisado radicular por pieza","","75","Root planing (per tooth)"],
+["Gingivectomía + obturación (pieza)","","95","Gingivectomy + filling (per tooth)"],
+["Alisado radicular por cuadrante","","100","Root planing (per quadrant)"],
+["Gingivectomía + recubrimiento pulpar (pieza)","","150","Gingivectomy + pulp cap (per tooth)"],
+["Gingivectomía + colocación de poste de fibra de vidrio (pieza)","Fibra de vidrio","200","Gingivectomy + fiberglass post (per tooth)"],
+["Gingivectomía completa","","250","Full-mouth gingivectomy"],
+["Gingivectomía + corona Empress (pieza)","Empress","350","Gingivectomy + Empress crown (per tooth)"],
+["Gingivectomía + endodoncia + reconstrucción con resina (pieza)","Resina","375","Gingivectomy + root canal + resin build-up (per tooth)"],
+["Alisado radicular para los IV cuadrantes","","400","Root planing, all four quadrants"],
+["Gingivectomía + corona zirconio (pieza)","Zirconio","450","Gingivectomy + zirconia crown (per tooth)"],
+["Gingivectomía + poste de fibra + corona EMAX (pieza)","EMAX","600","Gingivectomy + fiber post + EMAX crown (per tooth)"]]},
+{id:"exodoncias",cat:"Exodoncias",en:"Extractions",desc:"Extracciones simples y complicadas, siempre con anestesia y control del dolor.",descEn:"Simple and complex extractions, always with anesthesia and pain control.",items:[
+["Exodoncia simple (pieza)","","60","Simple extraction (per tooth)"],
+["Exodoncia complicada","","150","Complex extraction"]]},
+{id:"cirugia-maxilofacial",cat:"Cirugía maxilofacial",en:"Maxillofacial surgery",desc:"Cordales, biopsias, ATM y cirugía estética facial, con sedación consciente disponible.",descEn:"Wisdom teeth, biopsies, TMJ and facial esthetic surgery, with conscious sedation available.",items:[
+["Exodoncia de cordal (pieza)","","150","Wisdom tooth extraction (per tooth)"],
+["Hemisección","","150","Hemisection"],
+["Cirugía de mucocele (maxilofacial)","","250","Mucocele surgery (maxillofacial)"],
+["Regularización ósea","","250","Bone recontouring"],
+["Biopsia","","300","Biopsy"],
+["Sedación consciente","","350","Conscious sedation"],
+["Apicectomía","","375","Apicoectomy"],
+["Cirugía de bichectomía","","500","Buccal fat removal (bichectomy)"],
+["Profundización de vestíbulo","","500","Vestibuloplasty"],
+["Apicectomía + corona de zirconio","Zirconio","775","Apicoectomy + zirconia crown"],
+["Artrocentesis","","1000","TMJ arthrocentesis"],
+["Apicectomía + retratamiento de endodoncia + corona EMAX (pieza)","EMAX","1150","Apicoectomy + root canal retreatment + EMAX crown (per tooth)"],
+["Cirugía de lipopapada","","1200","Double-chin liposuction"]]},
+{id:"implantes",cat:"Implantes",en:"Implants",desc:"Implantología con planificación por tomografía 3D propia.",descEn:"Implantology planned with our in-house 3D CBCT.",items:[
+["Injerto de hueso y membrana por pieza","","300","Bone graft & membrane (per site)"],
+["Regeneración ósea con injerto de hueso y membrana","","600","Bone regeneration with graft & membrane"],
+["Prótesis completa sobre implantes","","850","Implant-supported full denture"],
+["Colocación de implante","","1000","Dental implant placement"],
+["Prótesis sobre implante","","1000","Implant-supported prosthesis"]]},
+{id:"protesis-fija",cat:"Prótesis fija",en:"Fixed prosthesis",desc:"Puentes y prótesis definitivas fijas.",descEn:"Bridges and definitive fixed prostheses.",items:[
+["Puente fijo de metal porcelana","Metal porcelana","200","Porcelain-fused-to-metal fixed bridge"],
+["Puente fijo de piezas de zirconio (piezas)","Zirconio","400","Zirconia fixed bridge (per unit)"],
+["Prótesis PMMA definitiva","PMMA","500","Definitive PMMA prosthesis"]]},
+{id:"protesis-removible",cat:"Prótesis removible",en:"Removable prosthesis",desc:"Prótesis flexibles y acrílicas, sin ganchos metálicos visibles.",descEn:"Flexible and acrylic dentures, no visible metal clasps.",items:[
+["Prótesis completa","","250","Complete denture"],
+["Prótesis completa acrílico","Acrílico","250","Complete acrylic denture"],
+["Prótesis Valplast unilateral","Valplast","375","Valplast partial denture (unilateral)"],
+["Prótesis completa total natural","","500","Complete natural-look denture"],
+["Prótesis Valplast bilateral","Valplast","500","Valplast partial denture (bilateral)"]]},
+{id:"provisionales",cat:"Provisionales",en:"Temporaries",desc:"",descEn:"",items:[
+["Provisional PMMA","PMMA","200","PMMA temporary"]]},
+{id:"ortodoncia",cat:"Ortodoncia",en:"Orthodontics",desc:"Evaluación, controles y retención.",descEn:"Evaluation, check-ups and retention.",items:[
+["Retiro de retenedor fijo","","65","Fixed retainer removal"],
+["Retenedor fijo","","150","Fixed retainer"]]},
+{id:"guardas",cat:"Guardas y protección oclusal",en:"Night guards",desc:"Protección para bruxismo y retención post-ortodoncia.",descEn:"Protection for bruxism and post-orthodontic retention.",items:[
+["Guarda oclusal","","55","Occlusal guard"],
+["Retenedor ortodóntico","","100","Orthodontic retainer"],
+["Guarda miorelajante","","300","Muscle-relaxation night guard"]]},
+{id:"otros",cat:"Otros servicios",en:"Other services",desc:"",descEn:"",items:[
+["Rebase de prótesis","","25","Denture reline"],
+["Sellante de fosas y fisuras","","25","Pit & fissure sealant"],
+["Obturación clase 5 leve","","35","Class V filling (minor)"],
+["Obturación clase 5","","45","Class V filling"],
+["Cita maxilofacial","","50","Maxillofacial visit"],
+["Cita ortodoncia","","50","Orthodontic visit"],
+["Control de ortodoncia","","50","Orthodontic check-up"],
+["Pulido de laminados","","65","Laminate polishing"],
+["Aplicación de flúor barniz","","100","Fluoride varnish application"],
+["Retenedor fijo ortodoncia","","100","Orthodontic fixed retainer"]]}
+];
+const MAT_EN = {"Resina":"Resin","Fibra de vidrio":"Fiberglass","Fibra":"Fiber","Zirconio":"Zirconia","Metal porcelana":"PFM","Acrílico":"Acrylic","EMAX":"EMAX","Empress":"Empress","Tessera":"Tessera","Valplast":"Valplast","PMMA":"PMMA"};
+
+/* ============ i18n (interfaz) ============ */
+const EN = {
+  "h.sub":"Price list","h.back":"← Back to site","h.cta":"Book",
+  "hero.k":"Transparent pricing · USD","hero.h":"The clinic's full price list.","hero.lead":"Over 170 procedures with defined prices, taken directly from the clinic's management system. Build your list with the <b>+</b> button and ask for appointment availability on WhatsApp — nothing is paid online.",
+  "how.1":"Find your treatment","how.2":"Add it with the + button","how.3":"Send your inquiry on WhatsApp",
+  "search.ph":"Search your treatment: crown, wisdom tooth, whitening…",
+  "empty.h":"We couldn't find that treatment","empty.t":"Message Tu Sonrisa on WhatsApp for an instant quote.",
+  "note":"<b>Note:</b> Prices may vary with each individual diagnosis; your final quote is delivered after the clinical exam. Staged payments are accepted as treatment progresses. All prices in U.S. dollars (USD).",
+  "fin.h":"Not sure what treatment you need?","fin.t":"Start with the exam ($25): you leave with a diagnosis, treatment plan and written quote. Or message Tu Sonrisa for instant guidance.","fin.cta":"Book an exam — $25",
+  "cart.serv":"services","cart.est":"estimate","cart.ver":"View my inquiry","cart.h":"My inquiry","cart.tot":"Estimated total","cart.note":"For reference — your final quote is delivered after your exam. Nothing is paid online.","cart.send":"Ask for availability on WhatsApp","cart.vac":"Your inquiry is empty. Add treatments with the + button.","todas":"All"
+};
+let LANG = localStorage.getItem('ts_lang') || 'es';
+let ES_CACHE = {};
+function applyLang(){
+  document.documentElement.lang = LANG;
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    const k = el.dataset.i;
+    if(!(k in ES_CACHE)) ES_CACHE[k] = el.innerHTML;
+    if(LANG==='en' && EN[k]!==undefined) el.innerHTML = EN[k];
+    else if(LANG==='es') el.innerHTML = ES_CACHE[k];
+  });
+  document.querySelectorAll('[data-ph]').forEach(el=>{
+    const k = el.dataset.ph;
+    if(!(k+'_ph' in ES_CACHE)) ES_CACHE[k+'_ph'] = el.placeholder;
+    el.placeholder = (LANG==='en' && EN[k]) ? EN[k] : ES_CACHE[k+'_ph'];
+  });
+  document.getElementById('langOn').textContent = LANG.toUpperCase();
+  document.getElementById('langOff').textContent = LANG==='es' ? 'EN' : 'ES';
+  renderChips(); render(); cartRender();
+}
+document.getElementById('langBtn').addEventListener('click', ()=>{
+  LANG = LANG==='es' ? 'en' : 'es';
+  localStorage.setItem('ts_lang', LANG);
+  applyLang();
+});
+
+/* ============ listado ============ */
+const list = document.getElementById('list');
+const chips = document.getElementById('chips');
+const empty = document.getElementById('empty');
+let activeCat = 'todas';
+function fmt(p){ return '$' + (+p).toLocaleString('en-US'); }
+function catName(g){ return LANG==='en' ? g.en : g.cat; }
+function svcName(it){ return LANG==='en' ? (it[3]||it[0]) : it[0]; }
+function matName(m){ return m ? (LANG==='en' ? (MAT_EN[m]||m) : m) : ''; }
+function renderChips(){
+  chips.innerHTML = `<button class="chip${activeCat==='todas'?' on':''}" data-c="todas">${LANG==='en'?EN['todas']:'Todas'}</button>` +
+    DATA.map(g=>`<button class="chip${activeCat===g.id?' on':''}" data-c="${g.id}">${catName(g)}</button>`).join('');
+}
+function render(){
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  const cart = cartGet();
+  let html = '', total = 0;
+  DATA.forEach(g=>{
+    if(activeCat !== 'todas' && g.id !== activeCat) return;
+    const items = g.items.filter(it => !q || (it[0]+' '+(it[3]||'')+' '+it[1]).toLowerCase().includes(q));
+    if(!items.length) return;
+    total += items.length;
+    const svcTxt = LANG==='en' ? (items.length>1?'services':'service') : (items.length>1?'servicios':'servicio');
+    html += `<section class="cat" id="${g.id}"><h2>${catName(g)} <small>${items.length} ${svcTxt}</small></h2>`;
+    const d = LANG==='en' ? g.descEn : g.desc;
+    if(d) html += `<p class="desc">${d}</p>`;
+    html += `<div class="tbl">` + items.map(it=>{
+      const inC = cart.some(x=>x.name===it[0]);
+      return `<div class="svc"><span>${svcName(it)}</span><span class="mat">${matName(it[1])}</span><span class="pr">${fmt(it[2])}</span><button class="add${inC?' inC':''}" data-n="${it[0].replace(/"/g,'&quot;')}" data-ne="${(it[3]||it[0]).replace(/"/g,'&quot;')}" data-p="${it[2]}" aria-label="Agregar">${inC?'✓':'+'}</button></div>`;
+    }).join('') + `</div></section>`;
+  });
+  list.innerHTML = html;
+  empty.style.display = total ? 'none' : 'block';
+}
+chips.addEventListener('click', e=>{
+  const b = e.target.closest('.chip'); if(!b) return;
+  activeCat = b.dataset.c;
+  renderChips(); render();
+  scrollTo({top:document.getElementById('tools').offsetTop - 80, behavior:'smooth'});
+});
+document.getElementById('search').addEventListener('input', render);
+
+/* ============ carrito ============ */
+const CART_KEY = 'ts_cart';
+function cartGet(){ try{ return JSON.parse(localStorage.getItem(CART_KEY))||[]; }catch(e){ return []; } }
+function cartSet(c){ localStorage.setItem(CART_KEY, JSON.stringify(c)); cartRender(); }
+function cartTotal(c){ return c.reduce((s,i)=>s+i.price*i.qty,0); }
+function itemLabel(i){ return LANG==='en' ? (i.nameEn||i.name) : i.name; }
+function cartRender(){
+  const c = cartGet();
+  const bar = document.getElementById('cartBar');
+  document.getElementById('cbN').textContent = c.reduce((s,i)=>s+i.qty,0);
+  document.getElementById('cbT').textContent = fmt(cartTotal(c));
+  bar.classList.toggle('show', c.length>0);
+  const box = document.getElementById('dItems');
+  if(!c.length){ box.innerHTML = `<p class="vac">${LANG==='en'?EN['cart.vac']:'Tu consulta está vacía. Agregá tratamientos con el botón +.'}</p>`; }
+  else box.innerHTML = c.map((i,idx)=>`
+    <div class="citem">
+      <span class="nm">${itemLabel(i)}</span>
+      <span class="pr">${fmt(i.price*i.qty)}</span>
+      <div class="qty"><button data-a="-" data-i="${idx}">−</button><span>${i.qty}</span><button data-a="+" data-i="${idx}">+</button></div>
+      <button class="rm" data-a="x" data-i="${idx}">${LANG==='en'?'remove':'quitar'}</button>
+    </div>`).join('');
+  document.getElementById('dTotal').textContent = fmt(cartTotal(c));
+}
+list.addEventListener('click', e=>{
+  const b = e.target.closest('.add'); if(!b) return;
+  const c = cartGet();
+  const found = c.find(i=>i.name===b.dataset.n);
+  if(found) found.qty++;
+  else c.push({name:b.dataset.n, nameEn:b.dataset.ne, price:+b.dataset.p, qty:1});
+  cartSet(c);
+  b.classList.add('inC'); b.textContent = '✓';
+  const t = document.getElementById('toast');
+  t.textContent = LANG==='en' ? 'Added to your inquiry' : 'Agregado a tu consulta';
+  t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 1500);
+});
+document.getElementById('dItems').addEventListener('click', e=>{
+  const b = e.target.closest('button'); if(!b) return;
+  const c = cartGet(); const i = +b.dataset.i;
+  if(b.dataset.a==='+') c[i].qty++;
+  else if(b.dataset.a==='-'){ c[i].qty--; if(c[i].qty<1) c.splice(i,1); }
+  else if(b.dataset.a==='x') c.splice(i,1);
+  cartSet(c); render();
+});
+const drawer = document.getElementById('drawer');
+function openDrawer(){ drawer.classList.add('open'); document.body.style.overflow='hidden'; }
+function closeDrawer(){ drawer.classList.remove('open'); document.body.style.overflow=''; }
+document.getElementById('cbOpen').addEventListener('click', openDrawer);
+document.getElementById('dClose').addEventListener('click', closeDrawer);
+document.getElementById('dDim').addEventListener('click', closeDrawer);
+document.getElementById('dSend').addEventListener('click', ()=>{
+  const c = cartGet(); if(!c.length) return;
+  const en = LANG==='en';
+  let msg = (en?'Hi Tu Sonrisa! I built this treatment inquiry on the website:':'Hola Tu Sonrisa, armé esta consulta de tratamientos en el sitio web:') + '\n\n' +
+    c.map(i=>`• ${itemLabel(i)}${i.qty>1?' ×'+i.qty:''} — ${fmt(i.price*i.qty)}`).join('\n') +
+    `\n\n${en?'Estimated total':'Total estimado'}: ${fmt(cartTotal(c))}` +
+    `\n\n${en?'What dates do you have available for an appointment?':'¿Qué fechas tienen disponibles para cita?'}` +
+    `\n(${en?'I know the final quote comes after my exam':'Sé que el presupuesto definitivo sale de mi evaluación'})`;
+  open('https://wa.me/50370211900?text=' + encodeURIComponent(msg), '_blank');
+});
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+applyLang();
+if(location.hash === '#carrito' && cartGet().length) setTimeout(openDrawer, 400);
+else if(location.hash){
+  const el = document.querySelector(location.hash);
+  if(el) setTimeout(()=>el.scrollIntoView({behavior:'smooth'}), 100);
+}
+</script>
+</body>
+</html>
