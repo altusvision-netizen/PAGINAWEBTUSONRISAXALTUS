@@ -21,10 +21,10 @@ html{scroll-behavior:smooth}
 body{background:var(--ivory);color:var(--ink);font-family:var(--f-s);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 button{font-family:var(--f-s)}
-.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(18px,4vw,44px)}
+.wrap{max-width:var(--maxw,1120px);margin:0 auto;padding:0 clamp(18px,4vw,44px)}
 
 header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(246,244,239,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line-soft)}
-header .hwrap{max-width:1120px;margin:0 auto;padding:0 clamp(18px,4vw,44px);height:72px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+header .hwrap{max-width:var(--maxw,1120px);margin:0 auto;padding:0 clamp(18px,4vw,44px);height:72px;display:flex;align-items:center;justify-content:space-between;gap:14px}
 .brand{display:flex;align-items:center;gap:11px}
 .brand svg{width:30px;height:30px}
 .brand b{font-family:var(--f-d);font-size:15px;letter-spacing:.08em}
@@ -111,6 +111,8 @@ footer{background:#081821;color:rgba(242,239,232,.5);padding:34px 0;font-size:12
 #drawer .vac{text-align:center;color:var(--ink2);padding:60px 20px;font-size:14px}
 .toast{position:fixed;left:50%;bottom:86px;transform:translate(-50%,20px);z-index:150;background:var(--ink);color:#fff;border-radius:100px;padding:11px 20px;font-size:13px;font-weight:600;opacity:0;visibility:hidden;transition:all .4s}
 .toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+@media(min-width:1560px){ :root{--maxw:1240px} }
+@media(min-width:1760px){ :root{--maxw:1320px} }
 @media(max-width:640px){
   .svc{grid-template-columns:1fr auto auto}
   .svc .mat{display:none}
