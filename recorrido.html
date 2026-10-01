@@ -9,6 +9,9 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 6C20 6 12 14 12 25c0 8 3 12 5 19s3 14 7 14 4-8 8-8 4 8 8 8 5-7 7-14 5-11 5-19C52 14 44 6 32 6z' fill='%230E5A68'/%3E%3Cpath d='M24 22c2-3 6-4 8-1 2-3 6-2 8 1 2 4-2 8-8 12-6-4-10-8-8-12z' fill='%23F6F4EF'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Alto de pantalla fijo (--vh). En el navegador de Instagram el alto cambia cada vez que sus barras aparecen o se
+     esconden, y todo lo medido en vh se estiraba y hacía brincar la página. Solo se recalcula si cambia el ancho. -->
+<script>(function(){var w=0,r=document.documentElement;function f(){if(innerWidth===w)return;w=innerWidth;r.style.setProperty('--vh',innerHeight/100+'px')}f();addEventListener('resize',f);addEventListener('orientationchange',function(){setTimeout(function(){w=0;f()},350)})})();</script>
 <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
@@ -124,9 +127,9 @@ header.site .back:hover{color:var(--aqua)}
 @media(prefers-reduced-motion:reduce){.lev{animation:none}}
 
 /* ---------- interludios entre capítulos ---------- */
-.inter{display:none;position:relative;min-height:120vh;align-items:center;justify-content:center;text-align:center;background:
+.inter{display:none;position:relative;min-height:calc(var(--vh,1svh) * 120);align-items:center;justify-content:center;text-align:center;background:
   radial-gradient(ellipse at 50% 0%,rgba(111,199,209,.08),transparent 55%),
-  radial-gradient(ellipse at 50% 100%,rgba(194,160,95,.07),transparent 55%),var(--bg);padding:20vh 1.5rem}
+  radial-gradient(ellipse at 50% 100%,rgba(194,160,95,.07),transparent 55%),var(--bg);padding:calc(var(--vh,1svh) * 20) 1.5rem}
 .inter .in{max-width:700px;opacity:0;transform:translateY(30px);transition:opacity 1s ease,transform 1s ease}
 .inter.vis .in{opacity:1;transform:none}
 .inter .cnum{font-family:var(--serif);font-size:clamp(3rem,10vw,5.5rem);color:rgba(242,239,232,.08);line-height:1}
@@ -550,7 +553,7 @@ var tracks = TRACKS.map(function(cfg, ti){
     return { el:el, a:+t[0], b:+t[1] };
   });
   var TOTAL_VH = cfg.script.reduce(function(s,z){ return s + z.len; }, 0);
-  root.style.height = (TOTAL_VH + 100) + 'vh';
+  root.style.height = 'calc(var(--vh,1svh) * ' + (TOTAL_VH + 100) + ')';
   return {
     cfg:cfg, root:root, video:video, panels:panels, chapters:chapters,
     TOTAL_VH:TOTAL_VH, duration:0, target:0, current:0, videoTime:0, lastSeekDone:0,
@@ -611,7 +614,7 @@ setTimeout(ready, 45000);
 enterBtn.addEventListener('click', function(){ loader.classList.add('done'); capBox.classList.add('on'); });
 
 function onScroll(){
-  var vh = innerHeight / 100;
+  var vh = parseFloat(document.documentElement.style.getPropertyValue('--vh')) || innerHeight / 100;
   var current = null;
   tracks.forEach(function(t, ti){
     var rect = t.root.getBoundingClientRect();

@@ -14,6 +14,9 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 6C20 6 12 14 12 25c0 8 3 12 5 19s3 14 7 14 4-8 8-8 4 8 8 8 5-7 7-14 5-11 5-19C52 14 44 6 32 6z' fill='%230E5A68'/%3E%3Cpath d='M24 22c2-3 6-4 8-1 2-3 6-2 8 1 2 4-2 8-8 12-6-4-10-8-8-12z' fill='%23F6F4EF'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Alto de pantalla fijo (--vh). En el navegador de Instagram el alto cambia cada vez que sus barras aparecen o se
+     esconden, y todo lo medido en vh se estiraba y hacía brincar la página. Solo se recalcula si cambia el ancho. -->
+<script>(function(){var w=0,r=document.documentElement;function f(){if(innerWidth===w)return;w=innerWidth;r.style.setProperty('--vh',innerHeight/100+'px')}f();addEventListener('resize',f);addEventListener('orientationchange',function(){setTimeout(function(){w=0;f()},350)})})();</script>
 <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -92,7 +95,7 @@ body.menu-open #mmenu{opacity:1;visibility:visible}
 #mmenu .mcta{margin-top:26px;display:flex;flex-direction:column;gap:12px}
 
 /* ---------- hero ---------- */
-#hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--ink)}
+#hero{position:relative;min-height:calc(var(--vh,1svh) * 100);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--ink)}
 #hero .media{position:absolute;inset:0}
 #hero video,#hero .media img{width:100%;height:100%;object-fit:cover;transform:scale(1.06)}
 #hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,34,46,.42) 0%,rgba(11,34,46,.18) 40%,rgba(11,34,46,.78) 100%)}
@@ -176,7 +179,7 @@ h2.title{font-family:var(--f-d);font-weight:700;font-size:clamp(30px,4vw,52px);l
 /* ---------- una sola cita (steps) ---------- */
 #cita .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,90px);align-items:start}
 #cita .sticky{position:sticky;top:96px}
-#cita .imgbox{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/4.4;max-height:calc(100svh - 180px);box-shadow:0 30px 80px -30px rgba(0,0,0,.65)}
+#cita .imgbox{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/4.4;max-height:calc(calc(var(--vh,1svh) * 100) - 180px);box-shadow:0 30px 80px -30px rgba(0,0,0,.65)}
 #cita .imgbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s ease;transform:scale(1.02)}
 #cita .imgbox img.on{opacity:1}
 #cita .imgbox .cap{position:absolute;left:16px;bottom:16px;background:rgba(11,34,46,.78);backdrop-filter:blur(6px);color:#fff;border-radius:10px;padding:9px 14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
@@ -195,7 +198,7 @@ h2.title{font-family:var(--f-d);font-weight:700;font-size:clamp(30px,4vw,52px);l
 #cita .big b i{color:var(--gold);font-style:normal}
 
 /* ---------- recorrido inmersivo por scroll (embebido) ---------- */
-#tour{position:relative;height:380vh;background:#04121b;color:#fff}
+#tour{position:relative;height:calc(var(--vh,1svh) * 380);background:#04121b;color:#fff}
 .tpin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 .tpin video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .tpin .tb-shade{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 52%,rgba(4,18,27,.55) 100%);pointer-events:none}
@@ -248,7 +251,7 @@ h2.title{font-family:var(--f-d);font-weight:700;font-size:clamp(30px,4vw,52px);l
 .t-e{grid-column:span 4}.t-e .im{aspect-ratio:16/11}
 
 /* ---------- máquina: se desarma con el scroll ---------- */
-#maquina{position:relative;height:320vh;background:#07141C}
+#maquina{position:relative;height:calc(var(--vh,1svh) * 320);background:#07141C}
 #maquina .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;align-items:center;justify-content:center}
 #maquina .fadeIn,#maquina .fadeOut{position:absolute;inset:0;z-index:6;pointer-events:none;opacity:0}
 #maquina .fadeIn{background:linear-gradient(to bottom,var(--ivory) 0%,rgba(246,244,239,.85) 35%,rgba(246,244,239,0) 100%)}
@@ -266,7 +269,7 @@ h2.title{font-family:var(--f-d);font-weight:700;font-size:clamp(30px,4vw,52px);l
 #maquina .mqbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--aqua),var(--rosa))}
 #maquina .mqpct{position:absolute;right:clamp(18px,4vw,44px);bottom:78px;font-family:var(--f-d);font-size:15px;color:var(--aqua);font-variant-numeric:tabular-nums}
 #maquina .mqhint{position:absolute;left:0;right:0;bottom:26px;text-align:center;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.45)}
-@media(max-width:860px){#maquina{height:260vh}#maquina .parts{bottom:130px}}
+@media(max-width:860px){#maquina{height:calc(var(--vh,1svh) * 260)}#maquina .parts{bottom:130px}}
 
 /* ---------- equipo ---------- */
 #equipo{background:var(--paper)}
@@ -489,7 +492,7 @@ footer .legalf{border-top:1px solid rgba(255,255,255,.08);padding-top:26px;font-
   .ptable .row .n{display:none}
   #scrollcue{display:none}
   .hcta .btn{display:none}
-  #tour{min-height:64vh}
+  #tour{min-height:calc(var(--vh,1svh) * 64)}
   .reels{grid-template-columns:repeat(2,1fr)}
   .reel:nth-child(n+4){display:none}
   .reel:nth-child(3){display:none}
@@ -552,7 +555,7 @@ footer .legalf{border-top:1px solid rgba(255,255,255,.08);padding-top:26px;font-
   .wa-bern .num{margin-left:0;width:100%}
   .hours .hrow{padding:14px 18px;font-size:13.5px}
   footer{padding:54px 0 34px}
-  footer .fgrid{gap:32px;margin-bottom:34px}
+  footer .fgrid{grid-template-columns:1fr;gap:32px;margin-bottom:34px} /* en 3 columnas no cabía: la página desbordaba a lo ancho */
   .legalf{flex-direction:column;gap:10px}
 
   /* ---- reels: carrusel deslizable con los 5 ---- */
@@ -579,7 +582,7 @@ footer .legalf{border-top:1px solid rgba(255,255,255,.08);padding-top:26px;font-
   /* ---- pasos CAD/CAM: imagen fija arriba, los pasos pasan debajo ---- */
   #cita .grid{gap:0}
   #cita .sticky{position:sticky;top:64px;z-index:6;background:var(--ink);padding:10px 0 12px;margin-bottom:6px}
-  #cita .imgbox{aspect-ratio:16/10;max-height:32svh}
+  #cita .imgbox{aspect-ratio:16/10;max-height:calc(var(--vh,1svh) * 32)}
   #cita .imgbox .cap{left:12px;bottom:12px;font-size:10px;padding:7px 12px}
   #cita .prog{margin-top:10px}
   .step{padding:18px 0 18px 54px}
